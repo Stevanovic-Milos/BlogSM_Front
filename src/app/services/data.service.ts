@@ -28,10 +28,6 @@ export class DataService {
     }
 
     private handleError(error: HttpErrorResponse) {
-
-        if (error.status == 401) {
-            this.router.navigate(['/login']);
-        }
         this.toastr.error('Something unexpected happened', 'ERROR');
         return throwError(() => error)
     }

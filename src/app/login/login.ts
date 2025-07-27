@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -15,7 +15,7 @@ import { loginRequest, loginResponse } from '../models/models';
   templateUrl: './login.html',
   styleUrl: './login.scss'
 })
-export class Login {
+export class Login implements OnInit {
   loading = false;
 
   constructor(
@@ -25,10 +25,20 @@ export class Login {
     private authService: AuthService
   ) { }
 
+  ngOnInit() {
+    this.redirectToHome();
+  }
+
   loginForm = new FormGroup({
     username: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required)
   })
+
+  redirectToHome(){
+    if(this.cookieService.get('auth_token')){
+      this.router.navigate(['/home']);
+    }
+  }
 
   onSubmit() {
     const loginData = this.loginForm.value;

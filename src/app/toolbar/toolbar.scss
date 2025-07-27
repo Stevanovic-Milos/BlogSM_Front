@@ -1,0 +1,35 @@
+.spacer {
+    flex: 1 1 auto;
+}
+
+.toolbar {
+    border-bottom: 1px solid var(--primary);
+    position: fixed;
+    z-index: 1000;
+}
+
+.item {
+    transition: ease-in-out 0.3s;
+    border-radius: 5px;
+    padding: 8px;
+    border: 0px solid var(--primary);
+    transition: ease-in-out 0.3s;
+}
+
+.item:hover {
+    cursor: pointer;
+    scale: 1.1;
+    color: var(--primary);    
+}
+
+
+.center {
+    display: flex;
+    flex-direction: row;
+    gap: 33px;
+}
+
+.active {
+    border-radius: 24px;
+    border: 1px solid var(--primary);
+}

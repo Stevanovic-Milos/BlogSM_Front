@@ -1,1 +1,101 @@
-<p>home works!</p>
+<div class="page">
+    <div *ngIf="loading" class="loading">
+        ...Loading blogs
+    </div>
+    <div *ngIf="!blogs && !loading" class="no-blogs">
+        There are no Blogs in our system.
+    </div>
+    <!-- LARG SCREENS VIEW -->
+    <div *ngIf="newestblog" class="newest-blog" (click)="onBlogDetails(newestblog.id)" >
+        <div class="blog-header">
+            <div class="blog-title">
+                {{newestblog.title}}
+            </div>
+            <div class="info">
+                <div class="category">
+                    {{newestblog.category}}
+                </div>
+                <div class="createdAt">
+                    {{newestblog.createdAt | date:'MMM d, y, h:mm a'}}
+                </div>
+                <div class="createdBy">
+                    {{newestblog.author}}
+                </div>
+            </div>
+            <div class="blog-body-new">
+                <div class="content">
+                    <markdown> {{newestblog.content | slice: 0:500}}...</markdown>
+                </div>
+
+            </div>
+        </div>
+        <div class="image-new">
+            <img class="img-new" src="{{newestblog.imageUrl}}" alt="blog-img">
+        </div>
+    </div>
+    <div class="blog-grid">
+        <!-- starting from second first one is on top -->
+        <div *ngFor="let blog of blogs | slice:1" class="blog-container" (click)="onBlogDetails(blog.id)" >
+            <div class="blog-header">
+                <div class="blog-title">
+                    {{blog?.title}}
+                </div>
+                <div class="info">
+                    <div class="category">
+                        {{blog?.category}}
+                    </div>
+                    <div class="createdAt">
+                        {{blog?.createdAt | date:'MMM d, y, h:mm a'}}
+                    </div>
+                    <div class="createdBy">
+                        {{blog?.author}}
+                    </div>
+                </div>
+            </div>
+            <div class="image">
+                <img class="img" src="{{blog.imageUrl}}" alt="blog-img">
+            </div>
+            <div class="blog-body">
+                <div class="content">
+                    <markdown>{{blog?.content | slice: 0:255}}...</markdown>
+                </div>
+                <div class="updatedAt">
+                    {{ blog?.updatedAt | date:'MMM d, y, h:mm a' }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MOBILE OR SMALL SCREEN -->
+    <div class="blog-grid-mobile">
+        <div *ngFor="let blog of blogs" class="blog-container" (click)="onBlogDetails(blog.id)">
+            <div class="blog-header">
+                <div class="blog-title">
+                    {{blog?.title}}
+                </div>
+                <div class="info">
+                    <div class="category">
+                        {{blog?.category}}
+                    </div>
+                    <div class="createdAt">
+                        {{blog?.createdAt | date:'MMM d, y, h:mm a'}}
+                    </div>
+                    <div class="createdBy">
+                        {{blog?.author}}
+                    </div>
+                </div>
+            </div>
+            <div class="image">
+                <img class="img" src="{{blog.imageUrl}}" alt="blog-img">
+            </div>
+            <div class="blog-body">
+                <div class="content">
+                    <markdown>{{blog?.content | slice: 0:255}}...</markdown>
+                </div>
+                <div class="updatedAt">
+                    {{ blog?.updatedAt | date:'MMM d, y, h:mm a' }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

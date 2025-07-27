@@ -1,0 +1,38 @@
+<div class="page">
+    <div class="user-profile-card">
+        <div class="user-avatar">
+            <div class="avatar-circle">
+                {{user?.firstname?.charAt(0) || 'U'}}{{user?.lastname?.charAt(0) || ''}}
+            </div>
+        </div>
+        <div class="user-details">
+            <h1 class="username">
+                {{user?.username}}
+            </h1>
+            <div class="user-info">
+                <div class="info-item">
+                    <span class="email">
+                        {{user?.email}}
+                    </span>
+                </div>
+                <div class="info-item">
+                    <span class="full-name">
+                        {{user?.firstname}} {{user?.lastname}}
+                    </span>
+                </div>
+                <div class="role">
+                    {{user?.role}}
+                </div>
+            </div>
+        </div>
+        <div class="buttons">
+            <div class="logout">
+                <button (click)="onLogout()" mat-stroked-button><mat-icon>logout</mat-icon><span>Logout</span></button>
+            </div>
+            <div class="edit">
+                <button (click)="onEdit()" matButton="filled"><mat-icon>edit</mat-icon><span>Edit
+                        profile</span></button>
+            </div>
+        </div>
+    </div>
+</div>

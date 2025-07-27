@@ -1,0 +1,35 @@
+<div class="page">
+    <div *ngIf="loading" class="loading">
+        loading blog ...
+    </div>
+    <div *ngIf="!loading && !blog" class="no-blogs">
+        Blog doesn't exist.
+    </div>
+    <div *ngIf="blog" class="blog">
+        <div class="blog-header">
+            <div class="blog-title-details">
+                {{blog.title}}
+            </div>
+            <div class="image">
+                <img class="img" src="{{blog.imageUrl}}" alt="blog-img">
+            </div>
+            <div class="info">
+                <div class="category">
+                    {{blog.category}}
+                </div>
+                <div class="createdAt">
+                    {{blog.createdAt | date:'MMM d, y, h:mm a'}}
+                </div>
+                <div class="createdBy">
+                    {{blog.author}}
+                </div>
+            </div>
+            <div class="blog-body">
+                <div class="content">
+                    <markdown> {{blog.content}}</markdown>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

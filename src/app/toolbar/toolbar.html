@@ -1,0 +1,19 @@
+<mat-toolbar class="toolbar">
+    <span>BlogSM</span>
+    <span class="spacer"></span>
+    <div *ngIf="isAuth()" class="center">
+        <div class="item" routerLink="/home" routerLinkActive="active">
+            Home
+        </div>
+        <div  class="item" routerLink="/create-blog" routerLinkActive="active">
+            Create Blog
+        </div>
+        <div class="item" routerLink="/my-blogs" routerLinkActive="active">
+            My Blogs
+        </div>
+    </div>
+    <span class="spacer"></span>
+    <button (click)="onUser()" matIconButton class="icon favorite-icon" aria-label="icon-button with heart icon">
+        <mat-icon>person</mat-icon>
+    </button>
+</mat-toolbar>

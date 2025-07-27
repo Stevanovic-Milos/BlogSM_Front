@@ -1,0 +1,39 @@
+<div class="page">
+    <form [formGroup]="create_blog_form" (ngSubmit)="onsubmit()">
+        <mat-form-field class="full-width">
+            <input type="text" matInput formControlName="title" placeholder="Enter blog title">
+            <mat-label>Title</mat-label>
+            @if (create_blog_form.get('title')?.hasError('required')) {
+            <mat-error>Title is mandatory</mat-error>
+            }
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <input type="text" matInput formControlName="category" placeholder="Enter blog category">
+            <mat-label>category</mat-label>
+            @if (create_blog_form.get('category')?.hasError('required')) {
+            <mat-error>category is mandatory</mat-error>
+            }
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <input type="text" matInput formControlName="imageUrl" placeholder="Enter blog image url">
+            <mat-label>Image</mat-label>
+            @if (create_blog_form.get('imageUrl')?.hasError('required')) {
+            <mat-error>image is mandatory</mat-error>
+            }
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <textarea matInput formControlName="content" placeholder="Enter blog content in markdown" rows="20"></textarea>
+            <mat-label>Content</mat-label>
+
+            @if (create_blog_form.get('content')?.hasError('required')) {
+            <mat-error>Content is mandatory</mat-error>
+            }
+        </mat-form-field>
+
+
+        <button class="full-width" matButton="filled" type="submit" [disabled]="!create_blog_form.valid">
+            Create Blog
+        </button>
+
+    </form>
+</div>

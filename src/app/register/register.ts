@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButton } from '@angular/material/button';
 import { MatFormField } from '@angular/material/form-field';
@@ -15,7 +15,7 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './register.html',
   styleUrl: './register.scss'
 })
-export class Register {
+export class Register implements OnInit {
   loading = false;
 
   constructor(
@@ -25,6 +25,11 @@ export class Register {
     private toastr: ToastrService
 
   ) { }
+
+  ngOnInit() {
+    this.redirectToHome();
+  }
+
   registerForm = new FormGroup({
     username: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
@@ -32,6 +37,12 @@ export class Register {
     surname: new FormControl('', Validators.required),
     email: new FormControl('', Validators.email)
   })
+
+  redirectToHome() {
+    if (this.cookieService.get('auth_token')) {
+      this.router.navigate(['/home']);
+    }
+  }
 
   onSubmit() {
     const registerData = this.registerForm.value;

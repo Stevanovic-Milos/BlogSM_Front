@@ -1,0 +1,34 @@
+<div class="page">
+    <form [formGroup]="user_form" (ngSubmit)="onSubmit()">
+        <mat-form-field class="full-width">
+            <input type="text" matInput formControlName="username" placeholder="Enter username">
+            <mat-label>Username</mat-label>
+            @if (user_form.get('username')?.hasError('required')) {
+            <mat-error>Username is mandatory</mat-error>
+            }
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <input type="text" matInput formControlName="firstName" placeholder="Enter name">
+            <mat-label>Name</mat-label>
+            @if (user_form.get('firstName')?.hasError('required')) {
+            <mat-error>Name is mandatory</mat-error>
+            }
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <input type="text" matInput formControlName="lastName" placeholder="Enter surname">
+                <mat-label>Surname</mat-label>
+                @if (user_form.get('lastName')?.hasError('required')) {
+                <mat-error>Surname is mandatory</mat-error>
+                }
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <input type="text" matInput formControlName="email" placeholder="Enter email">
+                <mat-label>Email</mat-label>
+                @if (user_form.get('email')?.hasError('required')) {
+                <mat-error>Email is mandatory</mat-error>
+                }
+            </mat-form-field>
+
+            <button class="full-width" matButton="filled" type="submit" [disabled]="!user_form.valid"> Update profile</button>
+    </form>
+</div>
