@@ -3,24 +3,25 @@ import { Component, OnInit } from '@angular/core';
 import { MarkdownComponent } from 'ngx-markdown';
 import { Blog, MyResponse } from '../models/models';
 import { BlogService } from '../services/blog.service';
-import { f } from "../../../node_modules/@angular/material/icon-module.d-COXCrhrh";
 import { MatIcon } from '@angular/material/icon';
 import { MatButton } from '@angular/material/button';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+import { Loading } from "../loading/loading";
 
 @Component({
   selector: 'app-my-blogs',
-  imports: [MarkdownComponent, CommonModule, MatIcon, MatButton],
+  imports: [MarkdownComponent, CommonModule, MatIcon, MatButton, Loading],
   templateUrl: './my-blogs.html',
   styleUrl: './my-blogs.scss'
 })
 export class MyBlogs implements OnInit {
   blogs: Blog[] | null = null;
+  loading = true;
 
-  constructor(private blogService: BlogService, private toastr: ToastrService, private router:Router) { }
+  constructor(private blogService: BlogService, private toastr: ToastrService, private router: Router) { }
 
-  ngOnInit(){
+  ngOnInit() {
     this.getAllBlogsCreatedByMe();
   }
 
@@ -33,29 +34,32 @@ export class MyBlogs implements OnInit {
     this.blogService.getAllBlogsCreatedByMe().subscribe({
       next: (res: Blog[]) => {
         this.blogs = res;
+        this.loading = false;
       },
       error: (err) => {
         console.log('Error while getting my events', err);
+        this.loading = false;
       }
     })
   }
 
-  deleteBlog(id:number){
-    if(confirm('Delete event?')){
+  deleteBlog(id: number ) {
+    if (confirm('Delete event?')) {
       this.blogService.deleteBlog(id).subscribe({
-        next:(res: MyResponse) =>{
-          if(res.success){
+        next: (res: MyResponse) => {
+          if (res.success) {
             this.toastr.success('Event deleted!', 'Sucess');
             this.getAllBlogsCreatedByMe();
           }
         },
-        error:(err)=>{
+        error: (err) => {
           console.log('Error while deleting blog', err);
         }
       })
     }
   }
-  editBlog(id: number){
+
+  editBlog(id: number) {
     this.blogService.setId(id);
     this.router.navigate(['/edit-blog'])
   }

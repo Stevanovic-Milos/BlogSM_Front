@@ -4,10 +4,11 @@ import { Router } from '@angular/router';
 import { Blog } from '../models/models';
 import { CommonModule } from '@angular/common';
 import { MarkdownComponent } from "ngx-markdown";
+import { Loading } from "../loading/loading";
 
 @Component({
   selector: 'app-blog-details',
-  imports: [CommonModule, MarkdownComponent],
+  imports: [CommonModule, MarkdownComponent, Loading],
   templateUrl: './blog-details.html',
   styleUrl: './blog-details.scss'
 })

@@ -1,4 +1,7 @@
 <div class="page">
+    <div *ngIf="loading" class="loading">
+        <app-loading></app-loading>
+    </div>
     <form [formGroup]="edit_blog_form" (ngSubmit)="onsubmit()">
         <mat-form-field class="full-width">
             <input type="text" matInput formControlName="title" placeholder="Enter blog title">
@@ -22,7 +25,8 @@
             }
         </mat-form-field>
         <mat-form-field class="full-width">
-            <textarea matInput formControlName="content" placeholder="Enter blog content in markdown" rows="20"></textarea>
+            <textarea matInput formControlName="content" placeholder="Enter blog content in markdown"
+                rows="20"></textarea>
             <mat-label>Content</mat-label>
 
             @if (edit_blog_form.get('content')?.hasError('required')) {
@@ -32,7 +36,7 @@
 
 
         <button class="full-width" matButton="filled" type="submit" [disabled]="!edit_blog_form.valid">
-            Save  Blog
+            Save Blog
         </button>
 
     </form>

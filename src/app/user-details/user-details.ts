@@ -5,18 +5,21 @@ import { ToastrService } from 'ngx-toastr';
 import { User } from '../models/models';
 import { CookieService } from 'ngx-cookie-service';
 import { MatButton, MatButtonModule } from '@angular/material/button';
-import { f } from "../../../node_modules/@angular/material/icon-module.d-COXCrhrh";
 import { MatIcon } from '@angular/material/icon';
+import { Loading } from "../loading/loading";
+import { CommonModule } from '@angular/common';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-user-details',
-  imports: [MatButton, MatIcon],
+  imports: [MatButton, MatIcon, Loading, CommonModule],
   templateUrl: './user-details.html',
   styleUrl: './user-details.scss'
 })
 export class UserDetails implements OnInit {
-  user: User | null = null
-  constructor(private userDetailsService: userDetailsService, private router: Router, private toastr: ToastrService, private cookieService: CookieService) { }
+  user: User | null = null;
+  loading = true;
+  constructor(private userDetailsService: userDetailsService, private router: Router, private toastr: ToastrService, private cookieService: CookieService, private authService: AuthService) { }
 
   ngOnInit() {
     this.getUserDetails();
@@ -26,18 +29,19 @@ export class UserDetails implements OnInit {
     this.userDetailsService.getUserDetails().subscribe({
       next: (res: User) => {
         this.user = res;
+        this.loading = false;
       },
       error: (err) => {
         console.log("Error fetching user details", err);
+        this.loading = false;
       }
     })
   }
+  
   onLogout() {
-    if (confirm('Logout?')) {
-      this.cookieService.delete('auth_token');
-      this.router.navigate(['/login']);
-    }
+    this.authService.onLogout();
   }
+
   onEdit() {
     this.router.navigate(['/edit-user'])
   }

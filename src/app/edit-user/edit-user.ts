@@ -9,15 +9,17 @@ import { ToastrService } from 'ngx-toastr';
 import { MatInput } from '@angular/material/input';
 import { CommonModule } from '@angular/common';
 import { CookieService } from 'ngx-cookie-service';
+import { Loading } from "../loading/loading";
 
 @Component({
   selector: 'app-edit-user',
-  imports: [ReactiveFormsModule, MatInput, MatFormFieldModule, MatButtonModule, CommonModule],
+  imports: [ReactiveFormsModule, MatInput, MatFormFieldModule, MatButtonModule, CommonModule, Loading],
   templateUrl: './edit-user.html',
   styleUrl: './edit-user.scss'
 })
-export class EditUser implements OnInit{
+export class EditUser implements OnInit {
   private user: User | null = null;
+  loading = true;
 
   user_form = new FormGroup({
     username: new FormControl('', Validators.required),
@@ -28,7 +30,7 @@ export class EditUser implements OnInit{
 
   constructor(private userDetailsService: userDetailsService, private router: Router, private toastr: ToastrService, private cookieService: CookieService) { }
 
-  ngOnInit(){
+  ngOnInit() {
     this.getUserData();
   }
 
@@ -41,9 +43,11 @@ export class EditUser implements OnInit{
           lastName: res.lastname,
           email: res.email
         })
+        this.loading = false;
       },
       error: (err) => {
         console.log('Error while getting user details', err)
+        this.loading = false;
       }
     })
   }

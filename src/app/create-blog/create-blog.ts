@@ -7,15 +7,18 @@ import { BlogService } from '../services/blog.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
+import { Loading } from "../loading/loading";
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-create-blog',
-  imports: [MatInput, ReactiveFormsModule, MatFormFieldModule,MatButtonModule],
+  imports: [MatInput, ReactiveFormsModule, MatFormFieldModule, MatButtonModule, Loading, CommonModule],
   templateUrl: './create-blog.html',
   styleUrl: './create-blog.scss'
 })
 export class CreateBlog {
-  constructor(private blogService: BlogService, private toastr:ToastrService, private router: Router){}
+  loading = false;
+  constructor(private blogService: BlogService, private toastr: ToastrService, private router: Router) { }
 
   create_blog_form = new FormGroup({
     title: new FormControl('', Validators.required),
@@ -25,6 +28,7 @@ export class CreateBlog {
   });
 
   onsubmit() {
+    this.loading = true;
     const formValue = this.create_blog_form.value;
     const createBlog: CreateBlogRequest = {
       title: formValue.title ?? '',
@@ -32,15 +36,18 @@ export class CreateBlog {
       imageUrl: formValue.imageUrl ?? '',
       content: formValue.content ?? ''
     };
+
     this.blogService.createBlog(createBlog).subscribe({
-      next:(res: MyResponse)=>{
-        if(res.success==true){
-          this.toastr.success(res.message,'SUCESS');
+      next: (res: MyResponse) => {
+        if (res.success == true) {
+          this.loading = false;
+          this.toastr.success(res.message, 'SUCESS');
           this.router.navigate(['/home']);
         }
       },
-      error:(err)=>{
+      error: (err) => {
         console.log('ERROR while saving blog', err);
+        this.loading = false;
       }
     })
   }

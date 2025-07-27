@@ -1,12 +1,15 @@
 <div class="page">
-    <div class="blog-grid">
+    <div *ngIf="loading" class="loading">
+        <app-loading></app-loading>
+    </div>
+<div class="blog-grid-my">
         <div *ngFor="let blog of blogs" class="blog-container" (click)="onBlogDetails(blog.id)">
             <div class="btns">
                 <div class="delete">
-                    <button (click)="deleteBlog(blog.id)" mat-stroked-button="filled" color="accent"><mat-icon>delete</mat-icon> <span>Delete blog</span></button>
+                    <button (click)="deleteBlog(blog.id); $event.stopPropagation()" mat-stroked-button="filled" color="accent"><mat-icon>delete</mat-icon> <span>Delete blog</span></button>
                 </div>
                 <div class="edit">
-                    <button (click)="editBlog(blog.id)" matButton="filled"><mat-icon>edit</mat-icon> <span>edit blog</span></button>
+                    <button (click)="editBlog(blog.id); $event.stopPropagation()" matButton="filled"><mat-icon>edit</mat-icon> <span>edit blog</span></button>
                 </div>
             </div>
             <div class="blog-header">

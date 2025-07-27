@@ -1,4 +1,7 @@
 <div class="page">
+    <div *ngIf="loading" class="loading">
+        <app-loading></app-loading>
+    </div>
     <form [formGroup]="user_form" (ngSubmit)="onSubmit()">
         <mat-form-field class="full-width">
             <input type="text" matInput formControlName="username" placeholder="Enter username">
