@@ -1,13 +1,19 @@
-// Include theming for Angular Material with `mat.theme()`.
-// This Sass mixin will define CSS variables that are used for styling Angular Material
-// components according to the Material 3 design spec.
-// Learn more about theming and how to use it for your application's
-// custom components at https://material.angular.dev/guide/theming
 @use '@angular/material' as mat;
 
 :root {
   --primary: #005CBB;
   --background: #FAF9FD;
+  --surface: #FFFFFF;
+  --on-surface: #333333;
+  --text-primary: #2C3E50;
+  --text-secondary: #7F8C8D;
+  --text-tertiary: #34495E;
+  --border-light: #EEEEEE;
+  --category-background: #E0F7FA;
+  --category-text: #00838F;
+  --timestamp: #95A5A6;
+  --shadow-light: rgba(0, 0, 0, 0.1);
+  --shadow-hover: rgba(0, 0, 0, 0.15);
 }
 
 html {
@@ -18,20 +24,11 @@ html {
       density: 0,
     ));
 
-  // Default the application to a light color theme. This can be changed to
-  // `dark` to enable the dark color theme, or to `light dark` to defer to the
-  // user's system settings.
   color-scheme: light;
-
-  // Set a default background, font and text colors for the application using
-  // Angular Material's system-level CSS variables. Learn more about these
-  // variables at https://material.angular.dev/guide/system-variables
   background-color: var(--mat-sys-surface);
   color: var(--mat-sys-on-surface);
   font: var(--mat-sys-body-medium);
 }
-
-/* You can add global styles to this file, and also import other style files */
 
 html,
 body {
@@ -42,8 +39,6 @@ body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
-
 
 .container {
   display: flex;
@@ -58,6 +53,7 @@ body {
 .title {
   font-size: 3rem;
   font-weight: 700;
+  color: var(--text-primary);
 }
 
 .image-login {
@@ -72,6 +68,8 @@ body {
   .login-title {
     font-size: 2rem;
     font-weight: 500;
+    margin-bottom: 5px;
+    color: var(--text-primary);
   }
 }
 
@@ -82,28 +80,26 @@ body {
   cursor: pointer;
 }
 
-/* Base page styles */
 .page {
   max-width: 1200px;
   margin: 0 auto;
   padding: 80px 20px;
-  color: #333;
+  color: var(--on-surface);
 }
 
 .page-header {
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 30px;
-  color: #2c3e50;
+  color: var(--text-primary);
   text-align: center;
 }
 
-/* Loading and empty state styles */
 .loading,
 .no-blogs {
   text-align: center;
   font-size: 1.2rem;
-  color: #7f8c8d;
+  color: var(--text-secondary);
   padding: 40px 0;
 }
 
@@ -114,15 +110,13 @@ body {
     width: 100%;
     max-height: 300px;
     object-fit: cover;
-
   }
-
 }
 
 .newest-blog {
-  background: white;
+  background: var(--surface);
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px var(--shadow-light);
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
@@ -130,17 +124,15 @@ body {
 
 .newest-blog:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 20px var(--shadow-hover);
   cursor: pointer;
 }
-
 
 .image-new {
   width: 50%;
   flex-shrink: 0;
   margin: auto;
   padding: 20px;
-
 }
 
 .img-new {
@@ -151,12 +143,10 @@ body {
   object-fit: cover;
 }
 
-/* Blog body styles */
 .blog-body-new {
   padding-top: 20px;
 }
 
-/* Blog grid layout */
 .blog-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -168,39 +158,36 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   gap: 30px;
-  margin-top: 20px;
 }
 
 .blog-grid-mobile {
   display: none;
 }
 
-/* Individual blog container */
 .blog-container {
-  background: white;
+  background: var(--surface);
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px var(--shadow-light);
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .blog-container:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 20px var(--shadow-hover);
   cursor: pointer;
 }
 
-/* Blog header styles */
 .blog-header {
   padding: 20px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--border-light);
 }
 
 .blog-title {
   font-size: 1.4rem;
   font-weight: 600;
   margin-bottom: 10px;
-  color: #2c3e50;
+  color: var(--text-primary);
 }
 
 .info {
@@ -208,7 +195,7 @@ body {
   flex-wrap: wrap;
   gap: 10px;
   font-size: 0.85rem;
-  color: #7f8c8d;
+  color: var(--text-secondary);
 }
 
 .info div {
@@ -216,17 +203,14 @@ body {
   align-items: center;
 }
 
-
-
 .category {
-  background: #e0f7fa;
-  color: #00838f;
+  background: var(--category-background);
+  color: var(--category-text);
   padding: 3px 8px;
   border-radius: 4px;
   font-weight: 500;
 }
 
-/* Blog body styles */
 .blog-body {
   padding: 20px;
 }
@@ -234,7 +218,7 @@ body {
 .content {
   line-height: 1.6;
   margin-bottom: 15px;
-  color: #34495e;
+  color: var(--text-tertiary);
   display: -webkit-box;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -242,7 +226,7 @@ body {
 
 .updatedAt {
   font-size: 0.8rem;
-  color: #95a5a6;
+  color: var(--timestamp);
   text-align: right;
   font-style: italic;
 }
@@ -256,6 +240,32 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 15px 20px;
+}
+
+.blog-title-details {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 4rem;
+  margin-bottom: 20px;
+  color: var(--text-primary);
+}
+
+.content markdown {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.markdown-clipboard-button {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 @media (max-width: 768px) {
@@ -275,7 +285,6 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 30px;
-    margin-top: 20px;
   }
 
   .image-login {
@@ -288,5 +297,4 @@ body {
     position: absolute;
     top: 20px;
   }
-
 }

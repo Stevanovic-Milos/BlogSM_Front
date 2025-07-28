@@ -10,7 +10,7 @@
         <div class="login-title">
             Login:
         </div>
-        <mat-form-field class="form-full">
+        <mat-form-field class="form-full" appearance="outline">
             <input type="text" matInput formControlName='username' placeholder="Pleas enter username">
             <mat-label>Username</mat-label>
             @if (loginForm.get('username')?.hasError('required')) {
@@ -18,7 +18,7 @@
             }
         </mat-form-field>
 
-        <mat-form-field class="form-full">
+        <mat-form-field class="form-full" appearance="outline">
             <input type="text" matInput formControlName='password' placeholder='Please enter password'>
             <mat-label>Password</mat-label>
             @if (loginForm.get('password')?.hasError('required')) {

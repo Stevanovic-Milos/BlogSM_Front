@@ -3,7 +3,7 @@
         <div class="title" style="margin-bottom: 2rem;">
             Register:
         </div>
-        <mat-form-field class="form-full">
+        <mat-form-field class="form-full" appearance="outline">
             <input type="text" matInput formControlName="username" placeholder="Enter desired username">
             <mat-label>Username</mat-label>
             @if (registerForm.get('username')?.hasError('required')) {
@@ -11,7 +11,7 @@
             }
         </mat-form-field>
 
-        <mat-form-field class="form-full">
+        <mat-form-field class="form-full" appearance="outline">
             <input type="text" matInput formControlName="password" placeholder="Enter password">
             <mat-label>Password</mat-label>
             @if (registerForm.get('password')?.hasError('required')) {
@@ -19,7 +19,7 @@
             }
         </mat-form-field>
 
-        <mat-form-field class="form-full">
+        <mat-form-field class="form-full" appearance="outline">
             <input type="text" matInput formControlName="name" placeholder="Enter your name">
             <mat-label>Name</mat-label>
             @if (registerForm.get('name')?.hasError('required')) {
@@ -27,7 +27,7 @@
             }
         </mat-form-field>
 
-        <mat-form-field class="form-full">
+        <mat-form-field class="form-full" appearance="outline">
             <input type="text" matInput formControlName="surname" placeholder="Enter yout surname">
             <mat-label>Surname</mat-label>
             @if (registerForm.get('surname')?.hasError('required')) {
@@ -35,7 +35,7 @@
             }
         </mat-form-field>
 
-        <mat-form-field class="form-full">
+        <mat-form-field class="form-full" appearance="outline">
             <input type="text" matInput formControlName="email" placeholder="Enter your email">
             <mat-label>Email</mat-label>
             @if (registerForm.get('surname')?.hasError('required')) {

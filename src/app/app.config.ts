@@ -27,8 +27,6 @@ export const appConfig: ApplicationConfig = {
         provide: MARKED_OPTIONS,
         useValue: {
           gfm: true,
-          breaks: false,
-          pedantic: false,
         },
       },
     })

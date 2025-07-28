@@ -2,16 +2,8 @@
     <div *ngIf="loading" class="loading">
         <app-loading></app-loading>
     </div>
-<div class="blog-grid-my">
+    <div class="blog-grid-my">
         <div *ngFor="let blog of blogs" class="blog-container" (click)="onBlogDetails(blog.id)">
-            <div class="btns">
-                <div class="delete">
-                    <button (click)="deleteBlog(blog.id); $event.stopPropagation()" mat-stroked-button="filled" color="accent"><mat-icon>delete</mat-icon> <span>Delete blog</span></button>
-                </div>
-                <div class="edit">
-                    <button (click)="editBlog(blog.id); $event.stopPropagation()" matButton="filled"><mat-icon>edit</mat-icon> <span>edit blog</span></button>
-                </div>
-            </div>
             <div class="blog-header">
                 <div class="blog-title">
                     {{blog?.title}}
@@ -33,10 +25,20 @@
             </div>
             <div class="blog-body">
                 <div class="content">
-                    <markdown>{{blog?.content | slice: 0:255}}...</markdown>
+                    <markdown clipboard lineNumbers>{{blog?.content | slice: 0:255}}...</markdown>
                 </div>
                 <div class="updatedAt">
                     {{ blog?.updatedAt | date:'MMM d, y, h:mm a' }}
+                </div>
+            </div>
+            <div class="btns">
+                <div class="delete">
+                    <button (click)="deleteBlog(blog.id); $event.stopPropagation()" mat-stroked-button="filled"
+                        color="accent"><mat-icon>delete</mat-icon> <span>Delete blog</span></button>
+                </div>
+                <div class="edit">
+                    <button (click)="editBlog(blog.id); $event.stopPropagation()"
+                        matButton="filled"><mat-icon>edit</mat-icon> <span>edit blog</span></button>
                 </div>
             </div>
         </div>
