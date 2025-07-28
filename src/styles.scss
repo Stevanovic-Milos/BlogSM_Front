@@ -39,7 +39,7 @@ body {
 
 body {
   margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Orbitron', sans-serif;
 }
 
 .toast-container .ngx-toastr {
@@ -47,7 +47,7 @@ body {
   color: var(--text-primary);
   border-radius: 8px !important;
   width: auto;
-  border: 1px solid var(--primary) ;
+  border: 1px solid var(--primary);
   max-width: 400px;
   box-shadow: none !important;
 }

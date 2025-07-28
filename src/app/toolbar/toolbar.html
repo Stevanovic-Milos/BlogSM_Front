@@ -1,13 +1,14 @@
 <mat-toolbar class="toolbar">
-   <div class="app-title">
-     <span>BearlyBlogging</span>
-   </div>
+    <div class="app-title" routerLink="/home">
+        <img src="assets/icons/favicon.ico" alt="BearlyBlogging">
+        <span>BearlyBlogging</span>
+    </div>
     <span class="spacer"></span>
     <div *ngIf="isAuth()" class="center">
         <div class="item" routerLink="/home" routerLinkActive="active">
             Home
         </div>
-        <div  class="item" routerLink="/create-blog" routerLinkActive="active">
+        <div class="item" routerLink="/create-blog" routerLinkActive="active">
             Create Blog
         </div>
         <div class="item" routerLink="/my-blogs" routerLinkActive="active">
