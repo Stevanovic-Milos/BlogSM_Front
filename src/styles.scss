@@ -1,19 +1,19 @@
 @use '@angular/material' as mat;
 
 :root {
-  --primary: #005CBB;
-  --background: #FAF9FD;
-  --surface: #FFFFFF;
-  --on-surface: #333333;
-  --text-primary: #2C3E50;
-  --text-secondary: #7F8C8D;
-  --text-tertiary: #34495E;
-  --border-light: #EEEEEE;
-  --category-background: #E0F7FA;
-  --category-text: #00838F;
-  --timestamp: #95A5A6;
-  --shadow-light: rgba(0, 0, 0, 0.1);
-  --shadow-hover: rgba(0, 0, 0, 0.15);
+--primary: #ABC7FF;
+--background: #121316;
+--surface: #1E1F24;
+--on-surface: #E0E2EC;
+--text-primary: #E0E2EC;
+--text-secondary: #A0A4B8;
+--text-tertiary: #C0C4D8;
+--border-light: #2D2E33;
+--category-background: #2A3A40;
+--category-text: #4FB3BF;
+--timestamp: #7F8C8D;
+--shadow-light: rgba(0, 0, 0, 0.3);
+--shadow-hover: rgba(0, 0, 0, 0.4);
 }
 
 html {
@@ -24,7 +24,7 @@ html {
       density: 0,
     ));
 
-  color-scheme: light;
+  color-scheme: dark;
   background-color: var(--mat-sys-surface);
   color: var(--mat-sys-on-surface);
   font: var(--mat-sys-body-medium);
