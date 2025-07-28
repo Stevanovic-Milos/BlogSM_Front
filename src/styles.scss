@@ -12,6 +12,8 @@
   --category-background: #2A3A40;
   --category-text: #4FB3BF;
   --timestamp: #7F8C8D;
+  --red: #FF6B6B;
+  --yellow: #FFD166;
   --shadow-light: rgba(0, 0, 0, 0.3);
   --shadow-hover: rgba(0, 0, 0, 0.4);
 }
@@ -40,6 +42,105 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.toast-container .ngx-toastr {
+  background-color: var(--background);
+  color: var(--text-primary);
+  border-radius: 8px !important;
+  width: auto;
+  border: 1px solid var(--primary) ;
+  max-width: 400px;
+  box-shadow: none !important;
+}
+
+.toast-success {
+  border-left-color: var(--primary);
+}
+
+.toast-success .toast-title {
+  color: var(--primary);
+}
+
+.toast-success .toast-message {
+  color: var(--text-secondary);
+}
+
+.toast-error {
+  border-left-color: var(--red);
+}
+
+.toast-error .toast-title {
+  color: var(--red);
+}
+
+.toast-error .toast-message {
+  color: var(--text-secondary);
+}
+
+.toast-warning {
+  border-left-color: var(--yellow);
+}
+
+.toast-warning .toast-title {
+  color: var(--yellow);
+}
+
+.toast-warning .toast-message {
+  color: var(--text-secondary);
+}
+
+.toast-info {
+  border-left-color: var(--category-text);
+}
+
+.toast-info .toast-title {
+  color: var(--category-text);
+}
+
+.toast-info .toast-message {
+  color: var(--text-secondary);
+}
+
+.toast-success .toast-progress {
+  background-color: var(--primary);
+}
+
+.toast-error .toast-progress {
+  background-color: #FF6B6B;
+}
+
+.toast-warning .toast-progress {
+  background-color: #FFD166;
+}
+
+.toast-info .toast-progress {
+  background-color: var(--category-text);
+}
+
+.toast-close-button {
+  color: var(--text-tertiary);
+  opacity: 0.8;
+  text-shadow: none;
+  position: relative;
+  right: -5px;
+  top: -5px;
+}
+
+.toast-close-button:hover {
+  color: var(--text-primary);
+  opacity: 1;
+}
+
+.toast-title {
+  font-weight: 600;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.toast-message {
+  font-size: 13px;
+  line-height: 1.4;
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -58,7 +159,7 @@ body {
 
 .text {
   margin-bottom: 24px;
-} 
+}
 
 .image-login {
   align-self: center;
@@ -309,7 +410,12 @@ button {
 
   .title {
     position: absolute;
-    top: 20px;
+    top: 40px;
+  }
+
+  .toast-container .ngx-toastr {
+    max-width: 250px !important;
+    margin: 0 auto 10px !important;
   }
 
 }

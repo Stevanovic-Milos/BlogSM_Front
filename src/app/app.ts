@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './app.scss'
 })
 export class App {
-  protected title = 'BlogSM_Front';
+  protected title = 'BearlyBlogging_Front';
 
   constructor(private router: Router) { }
 

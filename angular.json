@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "BlogSM_Front": {
+    "BearlyBlogging_Front": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -75,10 +75,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "BlogSM_Front:build:production"
+              "buildTarget": "BearlyBlogging_Front:build:production"
             },
             "development": {
-              "buildTarget": "BlogSM_Front:build:development"
+              "buildTarget": "BearlyBlogging_Front:build:development"
             }
           },
           "defaultConfiguration": "development"
