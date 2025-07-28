@@ -1,19 +1,19 @@
 @use '@angular/material' as mat;
 
 :root {
---primary: #ABC7FF;
---background: #121316;
---surface: #1E1F24;
---on-surface: #E0E2EC;
---text-primary: #E0E2EC;
---text-secondary: #A0A4B8;
---text-tertiary: #C0C4D8;
---border-light: #2D2E33;
---category-background: #2A3A40;
---category-text: #4FB3BF;
---timestamp: #7F8C8D;
---shadow-light: rgba(0, 0, 0, 0.3);
---shadow-hover: rgba(0, 0, 0, 0.4);
+  --primary: #ABC7FF;
+  --background: #121316;
+  --surface: #1E1F24;
+  --on-surface: #E0E2EC;
+  --text-primary: #E0E2EC;
+  --text-secondary: #A0A4B8;
+  --text-tertiary: #C0C4D8;
+  --border-light: #2D2E33;
+  --category-background: #2A3A40;
+  --category-text: #4FB3BF;
+  --timestamp: #7F8C8D;
+  --shadow-light: rgba(0, 0, 0, 0.3);
+  --shadow-hover: rgba(0, 0, 0, 0.4);
 }
 
 html {
@@ -54,8 +54,11 @@ body {
   font-size: 3rem;
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: 24px;
 }
+
+.text {
+  margin-bottom: 24px;
+} 
 
 .image-login {
   align-self: center;
@@ -236,6 +239,10 @@ body {
   width: 100%;
 }
 
+button {
+  border-radius: 8px !important;
+}
+
 .btns {
   display: flex;
   justify-content: space-between;
@@ -274,7 +281,8 @@ body {
   .blog-grid {
     display: none;
   }
-  .blog-container{
+
+  .blog-container {
     max-width: 100%;
     margin: auto;
   }
@@ -303,4 +311,5 @@ body {
     position: absolute;
     top: 20px;
   }
+
 }
