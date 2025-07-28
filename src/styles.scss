@@ -253,7 +253,7 @@ body {
 .content markdown {
   display: block;
   width: 100%;
-  overflow-x: auto;
+  overflow: hidden;
 }
 
 .markdown-clipboard-button {
@@ -267,6 +267,7 @@ body {
   cursor: pointer;
   transition: background-color 0.3s;
 }
+
 
 @media (max-width: 768px) {
   .blog-grid {

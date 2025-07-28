@@ -23,8 +23,8 @@
                         {{user?.firstname}} {{user?.lastname}}
                     </span>
                 </div>
-                <div class="role">
-                    {{user?.role}}
+                <div class="full-name">
+                    {{ user?.role === 'ROLE_USER' ? 'User' : 'Admin' }}
                 </div>
             </div>
         </div>
