@@ -5,10 +5,11 @@ import { Blog } from '../models/models';
 import { CommonModule } from '@angular/common';
 import { MarkdownComponent } from "ngx-markdown";
 import { Loading } from "../loading/loading";
+import { Back } from "../back/back";
 
 @Component({
   selector: 'app-blog-details',
-  imports: [CommonModule, MarkdownComponent, Loading],
+  imports: [CommonModule, MarkdownComponent, Loading, Back],
   templateUrl: './blog-details.html',
   styleUrl: './blog-details.scss'
 })
@@ -38,6 +39,6 @@ export class BlogDetails implements OnInit {
       }
     })
   }
-
+  
 
 }

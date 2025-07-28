@@ -9,10 +9,11 @@ import { MatIcon } from '@angular/material/icon';
 import { Loading } from "../loading/loading";
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../services/auth.service';
+import { Back } from "../back/back";
 
 @Component({
   selector: 'app-user-details',
-  imports: [MatButton, MatIcon, Loading, CommonModule],
+  imports: [MatButton, MatIcon, Loading, CommonModule, Back],
   templateUrl: './user-details.html',
   styleUrl: './user-details.scss'
 })

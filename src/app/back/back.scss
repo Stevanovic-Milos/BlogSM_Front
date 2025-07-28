@@ -1,0 +1,31 @@
+.back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--surface);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px var(--shadow-light);
+  border: 1px solid var(--border-light);
+  margin-bottom: 12px;
+
+  &:hover {
+    background-color: var(--category-background);
+    transform: translateX(-3px);
+    box-shadow: 0 4px 8px var(--shadow-hover);
+  }
+
+  mat-icon {
+    color: var(--text-primary);
+    font-size: 24px;
+    transition: transform 0.2s ease;
+  }
+
+  &:hover mat-icon {
+    color: var(--primary);
+    transform: scale(1.1);
+  }
+}

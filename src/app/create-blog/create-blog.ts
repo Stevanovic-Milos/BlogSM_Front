@@ -9,10 +9,11 @@ import { Router } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { Loading } from "../loading/loading";
 import { CommonModule } from '@angular/common';
+import { Back } from "../back/back";
 
 @Component({
   selector: 'app-create-blog',
-  imports: [MatInput, ReactiveFormsModule, MatFormFieldModule, MatButtonModule, Loading, CommonModule],
+  imports: [MatInput, ReactiveFormsModule, MatFormFieldModule, MatButtonModule, Loading, CommonModule, Back],
   templateUrl: './create-blog.html',
   styleUrl: './create-blog.scss'
 })

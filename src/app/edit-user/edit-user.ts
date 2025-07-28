@@ -10,10 +10,11 @@ import { MatInput } from '@angular/material/input';
 import { CommonModule } from '@angular/common';
 import { CookieService } from 'ngx-cookie-service';
 import { Loading } from "../loading/loading";
+import { Back } from "../back/back";
 
 @Component({
   selector: 'app-edit-user',
-  imports: [ReactiveFormsModule, MatInput, MatFormFieldModule, MatButtonModule, CommonModule, Loading],
+  imports: [ReactiveFormsModule, MatInput, MatFormFieldModule, MatButtonModule, CommonModule, Loading, Back],
   templateUrl: './edit-user.html',
   styleUrl: './edit-user.scss'
 })

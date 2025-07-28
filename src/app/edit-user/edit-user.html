@@ -1,21 +1,23 @@
 <div class="page">
-    <div *ngIf="loading" class="loading">
-        <app-loading></app-loading>
-    </div>
-    <form [formGroup]="user_form" (ngSubmit)="onSubmit()">
-        <mat-form-field class="full-width" appearance="outline">
-            <input type="text" matInput formControlName="username" placeholder="Enter username">
-            <mat-label>Username</mat-label>
-            @if (user_form.get('username')?.hasError('required')) {
-            <mat-error>Username is mandatory</mat-error>
-            }
-        </mat-form-field>
-        <mat-form-field class="full-width" appearance="outline">
-            <input type="text" matInput formControlName="firstName" placeholder="Enter name">
-            <mat-label>Name</mat-label>
-            @if (user_form.get('firstName')?.hasError('required')) {
-            <mat-error>Name is mandatory</mat-error>
-            }
+    <app-back></app-back>
+    <div class="center">
+        <div *ngIf="loading" class="loading">
+            <app-loading></app-loading>
+        </div>
+        <form [formGroup]="user_form" (ngSubmit)="onSubmit()">
+            <mat-form-field class="full-width" appearance="outline">
+                <input type="text" matInput formControlName="username" placeholder="Enter username">
+                <mat-label>Username</mat-label>
+                @if (user_form.get('username')?.hasError('required')) {
+                <mat-error>Username is mandatory</mat-error>
+                }
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="outline">
+                <input type="text" matInput formControlName="firstName" placeholder="Enter name">
+                <mat-label>Name</mat-label>
+                @if (user_form.get('firstName')?.hasError('required')) {
+                <mat-error>Name is mandatory</mat-error>
+                }
             </mat-form-field>
             <mat-form-field class="full-width" appearance="outline">
                 <input type="text" matInput formControlName="lastName" placeholder="Enter surname">
@@ -32,6 +34,8 @@
                 }
             </mat-form-field>
 
-            <button class="full-width" matButton="filled" type="submit" [disabled]="!user_form.valid"> Update profile</button>
-    </form>
+            <button class="full-width" matButton="filled" type="submit" [disabled]="!user_form.valid"> Update
+                profile</button>
+        </form>
+    </div>
 </div>

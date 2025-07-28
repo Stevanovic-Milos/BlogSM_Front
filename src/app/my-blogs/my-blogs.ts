@@ -7,10 +7,11 @@ import { MatButton } from '@angular/material/button';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { Loading } from "../loading/loading";
+import { Back } from "../back/back";
 
 @Component({
   selector: 'app-my-blogs',
-  imports: [CommonModule, MatIcon, MatButton, Loading],
+  imports: [CommonModule, MatIcon, MatButton, Loading, Back],
   templateUrl: './my-blogs.html',
   styleUrl: './my-blogs.scss'
 })
