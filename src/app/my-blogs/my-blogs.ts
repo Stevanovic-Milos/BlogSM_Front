@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { MarkdownComponent } from 'ngx-markdown';
 import { Blog, MyResponse } from '../models/models';
 import { BlogService } from '../services/blog.service';
 import { MatIcon } from '@angular/material/icon';
@@ -11,7 +10,7 @@ import { Loading } from "../loading/loading";
 
 @Component({
   selector: 'app-my-blogs',
-  imports: [MarkdownComponent, CommonModule, MatIcon, MatButton, Loading],
+  imports: [CommonModule, MatIcon, MatButton, Loading],
   templateUrl: './my-blogs.html',
   styleUrl: './my-blogs.scss'
 })
