@@ -8,10 +8,11 @@ import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { CookieService } from 'ngx-cookie-service';
 import { ToastrService } from 'ngx-toastr';
+import { Back } from "../back/back";
 
 @Component({
   selector: 'app-register',
-  imports: [MatFormField, MatInputModule, ReactiveFormsModule, MatButton],
+  imports: [MatFormField, MatInputModule, ReactiveFormsModule, MatButton, Back],
   templateUrl: './register.html',
   styleUrl: './register.scss'
 })

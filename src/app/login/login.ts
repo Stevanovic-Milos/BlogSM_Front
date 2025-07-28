@@ -8,10 +8,11 @@ import { CookieService } from 'ngx-cookie-service';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../services/auth.service';
 import { loginRequest, loginResponse } from '../models/models';
+import { Back } from "../back/back";
 
 @Component({
   selector: 'app-login',
-  imports: [MatFormFieldModule, MatButtonModule, MatInputModule, ReactiveFormsModule],
+  imports: [MatFormFieldModule, MatButtonModule, MatInputModule, ReactiveFormsModule, Back],
   templateUrl: './login.html',
   styleUrl: './login.scss'
 })
