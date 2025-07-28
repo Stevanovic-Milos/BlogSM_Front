@@ -273,6 +273,10 @@ body {
   .blog-grid {
     display: none;
   }
+  .blog-container{
+    max-width: 100%;
+    margin: auto;
+  }
 
   .newest-blog {
     display: none;
@@ -284,13 +288,13 @@ body {
 
   .blog-grid-mobile {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 30px;
   }
 
   .image-login {
     .img {
-      max-width: 350px;
+      max-width: 300px;
     }
   }
 
