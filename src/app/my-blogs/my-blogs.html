@@ -3,7 +3,10 @@
     <div *ngIf="loading" class="loading">
         <app-loading></app-loading>
     </div>
-    <div class="blog-grid-my">
+    <div *ngIf="blogs?.length == 0" class="no-blogs">
+        <app-no-blogs></app-no-blogs>
+    </div>
+    <div *ngIf="blogs" class="blog-grid-my">
         <div *ngFor="let blog of blogs" class="blog-container" (click)="onBlogDetails(blog.id)">
             <div class="blog-header">
                 <div class="blog-title">

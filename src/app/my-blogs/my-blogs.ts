@@ -8,10 +8,11 @@ import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { Loading } from "../loading/loading";
 import { Back } from "../back/back";
+import { NoBlogs } from "../no-blogs/no-blogs";
 
 @Component({
   selector: 'app-my-blogs',
-  imports: [CommonModule, MatIcon, MatButton, Loading, Back],
+  imports: [CommonModule, MatIcon, MatButton, Loading, Back, NoBlogs],
   templateUrl: './my-blogs.html',
   styleUrl: './my-blogs.scss'
 })
@@ -43,7 +44,7 @@ export class MyBlogs implements OnInit {
     })
   }
 
-  deleteBlog(id: number ) {
+  deleteBlog(id: number) {
     if (confirm('Delete event?')) {
       this.blogService.deleteBlog(id).subscribe({
         next: (res: MyResponse) => {

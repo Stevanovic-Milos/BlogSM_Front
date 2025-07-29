@@ -6,10 +6,11 @@ import { CommonModule } from '@angular/common';
 import { MarkdownComponent } from "ngx-markdown";
 import { Router, RouterModule } from '@angular/router';
 import { Loading } from "../loading/loading";
+import { NoBlogs } from "../no-blogs/no-blogs";
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule, MarkdownComponent, Loading],
+  imports: [CommonModule, MarkdownComponent, Loading, NoBlogs],
   templateUrl: './home.html',
   styleUrl: './home.scss'
 })

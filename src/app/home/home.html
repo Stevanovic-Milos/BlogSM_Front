@@ -1,9 +1,9 @@
 <div class="page">
-    <div *ngIf="!loading" class="loading">
+    <div *ngIf="loading" class="loading">
         <app-loading></app-loading>
     </div>
-    <div *ngIf="!blogs && !loading" class="no-blogs">
-        There are no Blogs in our system.
+    <div *ngIf="blogs?.length == 0" class="no-blogs">
+        <app-no-blogs></app-no-blogs>
     </div>
     <!-- LARG SCREENS VIEW -->
     <div *ngIf="newestblog" class="newest-blog" (click)="onBlogDetails(newestblog.id)">
