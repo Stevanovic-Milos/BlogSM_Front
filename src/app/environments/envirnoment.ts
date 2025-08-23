@@ -1,4 +1,4 @@
 export const environment = {
     production:false,
-    apiUrl:'https://blogsm-front.onrender.com/api'
+    apiUrl:'https://blog-50bs.onrender.com/api'
 }
