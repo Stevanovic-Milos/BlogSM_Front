@@ -57,7 +57,7 @@
             </div>
             <div class="blog-body">
                 <div class="content">
-                    <markdown clipboard lineNumbers>{{blog?.content | slice: 0:255}}...</markdown>
+                    <markdown mermaid clipboard lineNumbers>{{blog?.content | slice: 0:255}}...</markdown>
                 </div>
                 <div class="updatedAt">
                     {{ blog?.updatedAt | date:'MMM d, y, h:mm a' }}
