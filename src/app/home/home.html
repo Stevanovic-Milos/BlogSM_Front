@@ -24,7 +24,7 @@
             </div>
             <div class="blog-body-new">
                 <div class="content">
-                    <markdown clipboard lineNumbers> {{newestblog.content | slice: 0:500}}...</markdown>
+                    <markdown katex clipboard lineNumbers> {{newestblog.content | slice: 0:500}}...</markdown>
                 </div>
 
             </div>
@@ -57,7 +57,7 @@
             </div>
             <div class="blog-body">
                 <div class="content">
-                    <markdown mermaid clipboard lineNumbers>{{blog?.content | slice: 0:255}}...</markdown>
+                    <markdown katex mermaid clipboard lineNumbers>{{blog?.content | slice: 0:255}}...</markdown>
                 </div>
                 <div class="updatedAt">
                     {{ blog?.updatedAt | date:'MMM d, y, h:mm a' }}
