@@ -25,8 +25,14 @@
             <mat-error>image is mandatory</mat-error>
             }
         </mat-form-field>
+
+        <div class="preview" *ngIf="preview">
+            <markdown [data]="previewText" katex mermaid clipboard lineNumbers>
+            </markdown>
+        </div>
+
         <mat-form-field class="full-width" appearance="outline">
-            <textarea matInput formControlName="content" placeholder="Enter blog content in markdown"
+            <textarea markdown matInput formControlName="content" placeholder="Enter blog content in markdown"
                 rows="20"></textarea>
             <mat-label>Content</mat-label>
 
@@ -34,6 +40,17 @@
             <mat-error>Content is mandatory</mat-error>
             }
         </mat-form-field>
+
+        <div class="flex-container">
+            <button class="full-width" matButton="filled" style="margin-bottom: 20px;" type="button"
+                (click)="onPreview()" [disabled]="preview">
+                Preview
+            </button>
+            <button class="full-width" matButton="filled" style="margin-bottom: 20px;" type="button"
+                (click)="noPreview()" [disabled]="!preview">
+                Normal
+            </button>
+        </div>
 
 
         <button class="full-width" matButton="filled" type="submit" [disabled]="!create_blog_form.valid">

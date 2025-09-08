@@ -9,16 +9,20 @@ import { Router } from '@angular/router';
 import { Blog, CreateBlogRequest, MyResponse } from '../models/models';
 import { Loading } from "../loading/loading";
 import { CommonModule } from '@angular/common';
+import { MarkdownComponent } from "ngx-markdown";
+
 
 @Component({
   selector: 'app-edit-blog',
-  imports: [MatInput, ReactiveFormsModule, MatFormFieldModule, MatButtonModule, Loading, CommonModule],
+  imports: [MatInput, ReactiveFormsModule, MatFormFieldModule, MatButtonModule, Loading, CommonModule, MarkdownComponent],
   templateUrl: './edit-blog.html',
   styleUrl: './edit-blog.scss'
 })
 export class EditBlog implements OnInit {
   id = 0;
   loading = true;
+  preview = false;
+  previewText = "";
 
   constructor(private blogService: BlogService, private toastr: ToastrService, private router: Router) { }
 
@@ -33,6 +37,17 @@ export class EditBlog implements OnInit {
   ngOnInit() {
     this.id = this.blogService.getId();
     this.getBlogData();
+
+    //jedna subskripcija
+    const contentCtrl = this.edit_blog_form.get('content');
+    if (contentCtrl) {
+      contentCtrl.valueChanges.subscribe(value => {
+        if (this.preview) {
+          this.previewText = value ?? '';
+        }
+      });
+    }
+
   }
 
   onsubmit() {
@@ -84,5 +99,12 @@ export class EditBlog implements OnInit {
     })
   }
 
+  onPreview() {
+    this.preview = true;
+    this.previewText = this.edit_blog_form.get('content')?.value ?? '';
+  }
 
+  noPreview() {
+    this.preview = false;
+  }
 }

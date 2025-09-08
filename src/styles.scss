@@ -190,6 +190,12 @@ body {
   margin: 0 auto;
   padding: 80px 20px;
   color: var(--on-surface);
+
+  .preview {
+    border: 2px solid var(--primary);
+    padding: 15px;
+    border-radius: 5px;
+  }
 }
 
 .page-header {
