@@ -14,13 +14,6 @@ export class BlogService {
 
     constructor(private dataService: DataService) { }
 
-    setId(id: number) {
-        this.blog_id = id;
-    }
-    getId() {
-        return this.blog_id;
-    }
-
     getAllBlogs(): Observable<Blog[]> {
         return this.dataService.get(this.apiUrl);
     }

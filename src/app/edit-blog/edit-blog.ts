@@ -5,7 +5,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
 import { BlogService } from '../services/blog.service';
 import { ToastrService } from 'ngx-toastr';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Blog, CreateBlogRequest, MyResponse } from '../models/models';
 import { Loading } from "../loading/loading";
 import { CommonModule } from '@angular/common';
@@ -24,7 +24,7 @@ export class EditBlog implements OnInit {
   preview = false;
   previewText = "";
 
-  constructor(private blogService: BlogService, private toastr: ToastrService, private router: Router) { }
+  constructor(private blogService: BlogService, private toastr: ToastrService, private router: Router, private route: ActivatedRoute) { }
 
   edit_blog_form = new FormGroup({
     title: new FormControl('', Validators.required),
@@ -35,7 +35,9 @@ export class EditBlog implements OnInit {
   })
 
   ngOnInit() {
-    this.id = this.blogService.getId();
+    this.route.params.subscribe(parms=>{
+      this.id=+parms['id']
+    })
     this.getBlogData();
 
     //jedna subskripcija

@@ -27,8 +27,7 @@ export class MyBlogs implements OnInit {
   }
 
   onBlogDetails(id: number) {
-    this.blogService.setId(id);
-    this.router.navigate(['/blog-details']);
+    this.router.navigate([`/blog-details/${id}`]);
   }
 
   getAllBlogsCreatedByMe() {
@@ -61,8 +60,7 @@ export class MyBlogs implements OnInit {
   }
 
   editBlog(id: number) {
-    this.blogService.setId(id);
-    this.router.navigate(['/edit-blog'])
+    this.router.navigate([`/edit-blog/${id}`])
   }
 
 }

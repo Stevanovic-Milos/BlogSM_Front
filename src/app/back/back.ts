@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-back',
@@ -8,9 +9,16 @@ import { MatIcon } from '@angular/material/icon';
   styleUrl: './back.scss'
 })
 export class Back {
+  @Input() route: string | null = null;
+  constructor(private router: Router) { }
 
   onBack() {
-    window.history.back();
+    if (this.route) {
+      this.router.navigate([`${this.route}`])
+    }
+    else {
+      window.history.back();
+    }
   }
 
 }

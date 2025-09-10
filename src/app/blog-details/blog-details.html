@@ -1,10 +1,10 @@
 <div class="page">
-    <app-back></app-back>
+    <app-back route="home"></app-back>
     <div *ngIf="loading" class="loading">
         <app-loading></app-loading>>
     </div>
     <div *ngIf="!loading && !blog" class="no-blogs">
-        Blog doesn't exist.
+        <app-no-blogs message="Blog doesn't exist.!"></app-no-blogs>
     </div>
     <div *ngIf="blog" class="blog">
         <div class="blog-title-details">

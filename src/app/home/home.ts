@@ -39,9 +39,7 @@ export class Home implements OnInit {
     })
   }
   onBlogDetails(id: number) {
-    console.log('IDDDDDDD', id)
-    this.blogService.setId(id);
-    this.router.navigate(['/blog-details']);
+    this.router.navigate([`/blog-details/${id}`]);
   }
 
 }
