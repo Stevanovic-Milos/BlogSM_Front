@@ -17,7 +17,9 @@ import { NoBlogs } from "../no-blogs/no-blogs";
 export class Home implements OnInit {
   blogs: Blog[] | null = null;
   newestblog: Blog | null = null;
-  loading = true
+  loading = true;
+  imageLoaded = false;
+
 
   constructor(private toastr: ToastrService, private blogService: BlogService, private router: Router) { }
 
@@ -38,6 +40,10 @@ export class Home implements OnInit {
       }
     })
   }
+  onImageLoad() {
+    this.imageLoaded = true;
+  }
+
   onBlogDetails(id: number) {
     this.router.navigate([`/blog-details/${id}`]);
   }
