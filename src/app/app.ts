@@ -4,7 +4,7 @@ import { Toolbar } from './toolbar/toolbar'; // Ensure Toolbar is a standalone c
 import { CommonModule } from '@angular/common';
 import { filter } from 'rxjs';
 
-declare var gtag: (...args: any[]) => void;
+declare const gtag: any;
 
 @Component({
   selector: 'app-root',
@@ -27,6 +27,8 @@ export class App {
   }
 
   showToolbar(): boolean {
-    return !['/login', '/register', '/'].includes(this.router.url);
+    return this.router.url == '/login' ||
+      this.router.url == '/register' ||
+      this.router.url == '/'
   }
 }
