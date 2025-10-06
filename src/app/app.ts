@@ -20,6 +20,6 @@ export class App {
   showToolbar(): boolean {
     return this.router.url == '/login' ||
       this.router.url == '/register' ||
-      this.router.url == '/'
+      this.router.url == ''
   }
 }
