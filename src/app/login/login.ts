@@ -37,7 +37,7 @@ export class Login implements OnInit {
 
   redirectToHome(){
     if(this.cookieService.get('auth_token')){
-      this.router.navigate(['']);
+      this.router.navigate(['/']);
     }
   }
 
@@ -58,7 +58,7 @@ export class Login implements OnInit {
       next: (response: loginResponse) => {
         this.cookieService.set('auth_token', response.token);
         this.toastr.success('Login sucessful', 'SUCESS');
-        this.router.navigate(['']);
+        this.router.navigate(['/']);
       },
       error: (error) => {
         console.log('Error', error);
