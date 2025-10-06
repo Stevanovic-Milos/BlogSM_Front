@@ -29,7 +29,7 @@ export class BlogDetails implements OnInit {
       const id = +parms['id'];
 
       if (id == 0) {
-        this.router.navigate(['/home']);
+        this.router.navigate(['']);
         return;
       }
       this.blogService.getBlogById(id).subscribe({

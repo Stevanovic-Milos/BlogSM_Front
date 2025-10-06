@@ -60,7 +60,7 @@ export class CreateBlog implements OnInit {
         if (res.success == true) {
           this.loading = false;
           this.toastr.success(res.message, 'SUCESS');
-          this.router.navigate(['/home']);
+          this.router.navigate(['']);
         }
       },
       error: (err) => {
