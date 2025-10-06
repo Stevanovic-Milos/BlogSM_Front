@@ -32,6 +32,8 @@ export class BlogDetails implements OnInit {
         this.router.navigate(['']);
         return;
       }
+      this.analytics.trackEvent("blog loaded", `blog with id ${id}`, "blog loaded");
+
       this.blogService.getBlogById(id).subscribe({
         next: (res: Blog) => {
           this.blog = res;
@@ -42,7 +44,6 @@ export class BlogDetails implements OnInit {
           this.loading = false;
         }
       })
-      this.analytics.trackEvent("blog loaded", `blog with id ${id}`, "blog loaded");
     })
 
   }
