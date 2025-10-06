@@ -3,14 +3,14 @@ import { Blog } from '../models/models';
 import { ToastrService } from 'ngx-toastr';
 import { BlogService } from '../services/blog.service';
 import { CommonModule } from '@angular/common';
-import { MarkdownComponent } from "ngx-markdown";
-import { Router, RouterModule } from '@angular/router';
+import { Router } from '@angular/router';
 import { Loading } from "../loading/loading";
 import { NoBlogs } from "../no-blogs/no-blogs";
+import { AnalyticsService } from '../services/analytics.service';
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule, MarkdownComponent, Loading, NoBlogs],
+  imports: [CommonModule, Loading, NoBlogs],
   templateUrl: './home.html',
   styleUrl: './home.scss'
 })
@@ -21,9 +21,10 @@ export class Home implements OnInit {
   imageLoaded = false;
 
 
-  constructor(private toastr: ToastrService, private blogService: BlogService, private router: Router) { }
+  constructor(private toastr: ToastrService, private blogService: BlogService, private router: Router, private analytics: AnalyticsService) { }
 
   ngOnInit() {
+    this.analytics.trackEvent('home loaded', 'home loaded into view', 'home loading');
     this.getAllBlogs();
   }
 

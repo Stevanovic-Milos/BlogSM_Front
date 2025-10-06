@@ -7,6 +7,7 @@ import { MarkdownComponent } from "ngx-markdown";
 import { Loading } from "../loading/loading";
 import { Back } from "../back/back";
 import { NoBlogs } from "../no-blogs/no-blogs";
+import { AnalyticsService } from '../services/analytics.service';
 
 @Component({
   selector: 'app-blog-details',
@@ -17,7 +18,7 @@ import { NoBlogs } from "../no-blogs/no-blogs";
 export class BlogDetails implements OnInit {
   loading = true;
   blog: Blog | null = null;
-  constructor(private blogService: BlogService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private blogService: BlogService, private router: Router, private route: ActivatedRoute, private analytics: AnalyticsService) { }
 
   ngOnInit() {
     this.getBlog();
@@ -27,7 +28,7 @@ export class BlogDetails implements OnInit {
     var id = this.route.params.subscribe(parms => {
       const id = +parms['id'];
 
-      if (id==0) {
+      if (id == 0) {
         this.router.navigate(['/home']);
         return;
       }
@@ -41,6 +42,7 @@ export class BlogDetails implements OnInit {
           this.loading = false;
         }
       })
+      this.analytics.trackEvent("blog loaded", `blog with id ${id}`, "blog loaded");
     })
 
   }
