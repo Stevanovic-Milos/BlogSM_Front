@@ -11,10 +11,10 @@ import { UserDetails } from './user-details/user-details';
 import { EditUser } from './edit-user/edit-user';
 
 export const routes: Routes = [
-    { path: '', redirectTo: '/home', pathMatch: 'full' },
+    { path: '', redirectTo: '', pathMatch: 'full' },
     { path: 'login', component: Login },
     { path: 'register', component: Register },
-    { path: 'home', component: Home },
+    { path: '', component: Home },
     { path: 'blog-details/:id', component: BlogDetails },
     { path: 'create-blog', component: CreateBlog, canActivate: [AuthGUad] },
     { path: 'my-blogs', component: MyBlogs, canActivate: [AuthGUad] },
