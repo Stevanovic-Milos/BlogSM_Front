@@ -21,6 +21,7 @@ export class BlogDetails implements OnInit {
   constructor(private blogService: BlogService, private router: Router, private route: ActivatedRoute, private analytics: AnalyticsService) { }
 
   ngOnInit() {
+    this.analytics.trackEvent("blog loaded", `blog opened with some id`, "blog loaded");
     this.getBlog();
   }
 
